@@ -25,7 +25,7 @@ include_recipe 'smf'
 case node['platform']
   when 'smartos'
     available_ram = `prtconf -m`.chomp.to_i
-	else
+  else
     free_bytes = `free | grep Mem | awk '{print $2}'`.chomp.to_i  # in Kb
     available_ram = free_bytes / 1024 # in Mb
 end
